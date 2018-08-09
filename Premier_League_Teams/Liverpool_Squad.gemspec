@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'Amit Singh'"]
   spec.email         = ["'amit_nyc@live.com'"]
 
-  spec.summary       = %q{ Write a short summary, because RubyGems requires one.}
+  spec.summary       = %q{ CLI project which scrapes Premier_League team Liverpool and shows squad with player info.}
   spec.description   = %q{ Write a longer description or delete this line.}
   spec.homepage      = "https://github.com/amitnyc83/cli-data-gem-assessment-v-000/tree/master/Premier_League_Teams.rb"
 
@@ -33,4 +33,10 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "pry"
+
+  spec.add_dependency "nokogiri"
+  
+
 end
