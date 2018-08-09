@@ -11,7 +11,8 @@ class LiverpoolSquad::CLI
    puts " Welcome to Liverpool Football Club Premier League Team of the season"
   @players = LiverpoolSquad::Player.squad
   @players.each.with_index(1) do |player, i|
-    puts "#{i}. #{player.name}"
+    binding.pry
+    puts " #{i+1}. #{player.name} "
   end
 end
 
