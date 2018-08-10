@@ -11,14 +11,13 @@ class LiverpoolSquad::CLI
    puts " Welcome to Liverpool Football Club Premier League Team of the season"
   @players = LiverpoolSquad::Player.squad
   @players.each.with_index(1) do |player, i|
-    binding.pry
-    puts " #{i+1}. #{player.name} "
+    puts " #{i}. #{player.name}"
   end
 end
 
   def player_stats
     input = nil
-    while input != "exit"
+    while input != "quit"
       puts "Select a number from the list below to know more about the player. Type QUIT to exit or type LIST to see squad again"
       input = gets.strip.downcase
       if input.to_i > 0
