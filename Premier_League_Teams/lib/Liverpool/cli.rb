@@ -36,7 +36,7 @@ end
         puts "---------------------------------------"
       elsif input == "list"
         list_players
-      elsif
+      else
       puts "Invalid input. Select a number from the list below to know more about the player. Type QUIT to exit or type LIST to see squad again "
     end
   end
