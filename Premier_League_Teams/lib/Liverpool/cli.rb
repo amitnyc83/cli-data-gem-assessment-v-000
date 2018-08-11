@@ -20,7 +20,7 @@ end
   def player_stats
     input = nil
     while input != "exit"
-      puts "Select a number from the list below to know more about the player. Type Exit to quit or type LIST to see squad again"
+      puts "Select a number from the list above to know more about the player."
       input = gets.strip.downcase
 
       if input.to_i > 0
@@ -34,11 +34,19 @@ end
         puts "---------------------------------------"
         puts "Position:         #{new_player.position}"
         puts "---------------------------------------"
-      elsif input == "list"
-        list_players
+        puts "Type Exit to quit or type LIST to see squad again"
+        input =gets.strip
+        if input == "list"
+          @players = LiverpoolSquad::Player.squad
+          @players.each.with_index(1) do |player, i|
+            puts " #{i}. #{player.name}"
+          end
+      elsif input == "exit"
+        goodbye
       else
-      puts "Invalid input. Select a number from the list below to know more about the player. Type QUIT to exit or type LIST to see squad again "
+      puts "Invalid input.Please type Exit to quit or type LIST to see squad again "
     end
+  end
   end
 end
 
