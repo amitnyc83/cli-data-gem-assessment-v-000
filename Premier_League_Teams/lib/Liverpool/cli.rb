@@ -22,7 +22,7 @@ def player_stats
   while input != "exit"
     puts "Select a number from the list below to know more about the player. Type Exit to quit or type LIST to see squad again"
     input = gets.strip.downcase
-    
+
     if input.to_i > 0
       new_player = @players[input.to_i-1]
       puts "---------------------------------------"
@@ -40,6 +40,8 @@ def player_stats
         @players = LiverpoolSquad::Player.squad
         @players.each.with_index(1) do |player, i|
           puts " #{i}. #{player.name}"
+        elsif input == "exit"
+          goodbye
         else
           puts "That is not a valid input. Please type QUIT to exit or type LIST to see squad again "
         end
