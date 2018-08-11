@@ -17,27 +17,33 @@ class LiverpoolSquad::CLI
   end
 end
 
-  def player_stats
-    input = nil
-    while input != "exit"
-      puts "Select a number from the list below to know more about the player. Type Exit to quit or type LIST to see squad again"
+def player_stats
+  input = nil
+  while input != "exit"
+    puts "Select a number from the list below to know more about the player. Type Exit to quit or type LIST to see squad again"
+    input = gets.strip.downcase
+    
+    if input.to_i > 0
+      new_player = @players[input.to_i-1]
+      puts "---------------------------------------"
+      puts "Name:             #{new_player.name}"
+      puts "---------------------------------------"
+      puts "Nationality:      #{new_player.nationality}"
+      puts "---------------------------------------"
+      puts "Squad Number:     #{new_player.number}"
+      puts "---------------------------------------"
+      puts "Position:         #{new_player.position}"
+      puts "---------------------------------------"
+      puts "Type Exit to quit or type LIST to see squad again!"
       input = gets.strip.downcase
-
-      if input.to_i > 0
-        new_player = @players[input.to_i-1]
-        puts "---------------------------------------"
-        puts "Name:             #{new_player.name}"
-        puts "---------------------------------------"
-        puts "Nationality:      #{new_player.nationality}"
-        puts "---------------------------------------"
-        puts "Squad Number:     #{new_player.number}"
-        puts "---------------------------------------"
-        puts "Position:         #{new_player.position}"
-        puts "---------------------------------------"
-      elsif input == "list"
-        list_players
-      else
-      puts "Invalid input. Select a number from the list below to know more about the player. Type QUIT to exit or type LIST to see squad again "
+      if input == "list"
+        @players = LiverpoolSquad::Player.squad
+        @players.each.with_index(1) do |player, i|
+          puts " #{i}. #{player.name}"
+        else
+          puts "That is not a valid input. Please type QUIT to exit or type LIST to see squad again "
+        end
+      end
     end
   end
 end
