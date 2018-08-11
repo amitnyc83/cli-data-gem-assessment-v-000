@@ -40,6 +40,7 @@ def player_stats
         @players = LiverpoolSquad::Player.squad
         @players.each.with_index(1) do |player, i|
           puts " #{i}. #{player.name}"
+        end
         elsif input == "exit"
           goodbye
         else
@@ -48,7 +49,7 @@ def player_stats
       end
     end
   end
-end
+
 
 
   def goodbye
