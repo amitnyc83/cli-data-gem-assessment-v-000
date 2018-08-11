@@ -4,7 +4,6 @@ class LiverpoolSquad::CLI
   def call
     list_players
     player_stats
-    goodbye
   end
 
   def list_players
